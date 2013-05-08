@@ -9,9 +9,10 @@ exports.module = function () {
       return daysInMonth[month];
     },
     test = function () {
-      var month, year, months, i, j, firstDayDate, firstDay;
+      var month, year, months, i, j, firstDayDate, firstDay, dayInYear;
       month = 0;
       year = 2013;
+      dayInYear = 1
       months = 12;
       for (i = 0; i < months; i += 1) {
         firstDayDate = new Date(year, month, 1);
