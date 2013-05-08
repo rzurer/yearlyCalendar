@@ -4,3 +4,36 @@
     font-size: 9px;
     font-weight: bold;
 }
+.monthTableHeader {
+	font-size : 11px;
+	color: black;
+}
+.daysOfWeekHeader{
+	color: blue;
+	vertical-align: top;
+	font-weight: normal;
+	line-height: 20px;
+}
+.calendarCell{
+	vertical-align: top;
+	width: 28px;
+	height: 28px;
+	border: 1px solid gainsboro;
+}
+.weekendCell{
+	color: gainsboro;
+}
+.yearCell{
+	font-size : 16px;
+}
+.yearInfoCell{
+	font-size : 12px;
+	text-align: right;
+}
+.monthContainerCell{
+	border : 1px solid gainsboro;
+	padding : 2px;
+}
+.monthContainerRow{
+	vertical-align : top;
+}
