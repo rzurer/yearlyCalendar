@@ -1,0 +1,16 @@
+{
+  "name": "yearlyCalendar",
+  "description": "A yearly calendar widget",
+  "version": "0.0.1-1",
+  "dependencies": {
+    "express": "3.x",
+    "jade": "0.28.x"
+  },
+  "subdomain": "bzurer-yearlyCalendar",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "0.8.x"
+  }
+}

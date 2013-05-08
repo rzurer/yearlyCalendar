@@ -1,0 +1,10 @@
+'use strict';
+var express, routes, config, app, application;
+express = require('express');
+routes = require('./modules/routes').routes();
+config = require('./config');
+app = express();
+config.configure(app, express);
+routes.initialize(app);
+application = app.listen(4444);
+console.log('Express service listening on port %d, environment: %s', application.address().port, app.settings.env);
