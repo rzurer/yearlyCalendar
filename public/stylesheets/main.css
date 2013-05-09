@@ -1,39 +1,69 @@
-.calendarContainer{
+@charset 'UTF-8';
+#calendarContainer{
     color : #696969;
+    background-color: white !important;
     font-family: 'Sintony';
     font-size: 9px;
     font-weight: bold;
+    cursor:pointer;
+}
+.yearTable{
+    width: 950px;
 }
 .monthTableHeader {
-	font-size : 11px;
-	color: black;
+    font-size : 11px;
+    color: black;
 }
 .daysOfWeekHeader{
-	color: blue;
-	vertical-align: top;
-	font-weight: normal;
-	line-height: 20px;
+    color: blue;
+    vertical-align: top;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 20px;
 }
 .calendarCell{
-	vertical-align: top;
-	width: 28px;
-	height: 28px;
-	border: 1px solid gainsboro;
+    vertical-align: top;
+    width: 28px;
+    height: 28px;
+    border: 1px solid gainsboro;
 }
 .weekendCell{
-	color: gainsboro;
+    color: darkgray;
 }
 .yearCell{
-	font-size : 16px;
+    font-size : 16px;
+}
+.productCell {
+    font-size : 16px;
+    text-align: left;
+    font-weight: bold;
+}
+.productCell span{
+    color: red;
 }
 .yearInfoCell{
-	font-size : 12px;
-	text-align: right;
+    font-size : 12px;
+    text-align: right;
+    font-weight: normal;
+}
+.yearCell img
+{
+    width: 23px;
+    margin-bottom: -5px;
+}
+.yearCell span
+{
+    width: 23px;
+    padding: 0 8px;
 }
 .monthContainerCell{
-	border : 1px solid gainsboro;
-	padding : 2px;
+    border : 1px solid gainsboro;
+    padding : 2px;
 }
 .monthContainerRow{
-	vertical-align : top;
+    vertical-align : top;
+}
+.yearHeaderRow {
+    line-height: 30px;
+    color: black;
 }

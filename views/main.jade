@@ -1,7 +1,8 @@
 extends layout 
 block content
-    .calendarContainer
+    #calendarContainer
     script
         $(function () {
-            renderCalendar($('.calendarContainer'), 2009);
+            var urlLibrarian = {PreviousImage: 'http://www.usatf.org/CMSWebparts/Viewers/iCarouselGallery_files/images/prev.gif', NextImage : 'http://www.usatf.org/CMSWebparts/Viewers/iCarouselGallery_files/images/next.gif'};
+            productSpecificationsCalendar(urlLibrarian).renderCalendar($('#calendarContainer'), 'CL', 2013);
         });
