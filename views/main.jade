@@ -10,5 +10,6 @@ block content
             return {PreviousImage: previousImageSrc, NextImage : nextImageSrc};
           };
       $(function () {
-        productSpecificationsCalendar(createUrlLibrarian()).renderCalendar(parent, 'CL', [2011, 2012, 2013, 2014, 2015]);
+        var data = [{"2012 + '|' + 1" : "New Years Day"}, {"2012 + '|' + 350" : "Christmas"}]
+        productSpecificationsCalendar(createUrlLibrarian()).renderCalendar(parent, 'CL', [2011, 2012, 2013, 2014, 2015], data);
       });

@@ -27,7 +27,7 @@ var productSpecificationsCalendar = function (urlLibrarian) {
         row.addClass('daysOfWeekHeader');
         return row;
       },
-      createCalendarDayCell = function (id, text, isWeekendDay) {
+      createCalendarDayCell = function (id, text, isWeekendDay, data) {
         var cell;
         cell = $('<td>');
         cell.attr('id', id);
@@ -170,15 +170,40 @@ var productSpecificationsCalendar = function (urlLibrarian) {
           yearTable.append(row);
         }
         return yearTable;
+      },
+      getObjectInfo = function (obj) {
+        var prop, that = [];
+        if (!obj) {
+          return that;
+        }
+        for (prop in obj) {
+          if (obj.hasOwnProperty(prop)) {
+            that.push({name : prop, value : obj[prop]});
+          }
+        }
+        return that;
+      },
+      addData = function (table, data) {
+        if (!data) {
+          return;
+        }
+        var array = getObjectInfo(data);
+        array.forEach(function (element) {
+          console.log(element.name);
+          console.log(element.value);
+        });
       };
     return {
-      renderCalendar: function (parent, product, years) {
-        var currentYear = new Date().getFullYear();
+      renderCalendar: function (parent, product, years, data) {
+        var yearTable,
+          currentYear = new Date().getFullYear();
         yearsArray = years;
-        years.forEach(function (year) {
-          parent.append(createYearTableForProductYear(product, year));
-        });
         currentYearIndex = yearsArray.indexOf(currentYear);
+        years.forEach(function (year) {
+          yearTable = createYearTableForProductYear(product, year);
+          addData(yearTable, data);
+          parent.append(yearTable);
+        });
         if (currentYearIndex < 0) {
           currentYearIndex = 0;
         }
