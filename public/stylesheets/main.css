@@ -9,6 +9,7 @@
 }
 .yearTable{
     width: 950px;
+    display: none;
 }
 .monthTableHeader {
     font-size : 11px;

@@ -1,7 +1,9 @@
 /*global  $*/
 "use strict";
 var productSpecificationsCalendar = function (urlLibrarian) {
-    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+    var yearsArray,
+      currentYearIndex,
+      daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
       monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       getDaysInMonth = function (month, year) {
         if ((month === 1) && (year % 4 === 0) && ((year % 100 !== 0) || (year % 400 === 0))) {
@@ -60,14 +62,25 @@ var productSpecificationsCalendar = function (urlLibrarian) {
         image.click(clickMethod);
         return image;
       },
+      showYearTable = function () {
+        $('#' + yearsArray[currentYearIndex]).show();
+      },
       createYearCell = function (year) {
         var cell, previousYear, nextYear, span;
         cell = $('<th>');
         previousYear = function () {
-          console.log('previous');
+          if (currentYearIndex > 0) {
+            currentYearIndex -= 1;
+          }
+          $('.yearTable').hide();
+          showYearTable();
         };
         nextYear = function () {
-          console.log('next');
+          if (currentYearIndex < yearsArray.length - 2) {
+            currentYearIndex += 1;
+          }
+          $('.yearTable').hide();
+          showYearTable();
         };
         cell.append(createPreviousYearImage(previousYear));
         span = $('<span>');
@@ -145,6 +158,7 @@ var productSpecificationsCalendar = function (urlLibrarian) {
         calendar = createCalendarFor(year);
         index = 0;
         yearTable = $('<table>');
+        yearTable.attr('id', year);
         yearTable.addClass('yearTable');
         yearTable.append(createYearHeaderRow(product, year, calendar.businessDaysInYear));
         for (k = 0; k < 3; k += 1) {
@@ -158,8 +172,17 @@ var productSpecificationsCalendar = function (urlLibrarian) {
         return yearTable;
       };
     return {
-      renderCalendar: function (parent, product, year) {
-        parent.append(createYearTableForProductYear(product, year));
+      renderCalendar: function (parent, product, years) {
+        var currentYear = new Date().getFullYear();
+        yearsArray = years;
+        years.forEach(function (year) {
+          parent.append(createYearTableForProductYear(product, year));
+        });
+        currentYearIndex = yearsArray.indexOf(currentYear);
+        if (currentYearIndex < 0) {
+          currentYearIndex = 0;
+        }
+        showYearTable();
       }
     };
   };
